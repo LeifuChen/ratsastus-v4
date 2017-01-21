@@ -2,12 +2,28 @@ extends ../layouts/default
 
 block css
 	link(rel="stylesheet", href="/js/lib/fancybox/jquery.fancybox.css")
-				
+	link(rel="stylesheet", href="/style/card.less")
+	
 block content
 	.page-header
 		a(href='/keystone/galleries?new').btn.btn-default.pull-right= user ? 'Add Album' : 'Sign in to Add Album'
-		h1 Gallery
+		h1 FAQ
 
+		p#introduction.card
+			| We try to make Nordea Pay as easy to use as possible. Here you can
+			| find the answers for the most used features and the best way to use them.
+		h2 Good to know
+		h3 What can I do with Nordea Pay?
+		p
+			| You can use your mobile phone to pay for purchases at stores and you can view the balance of your
+			| account and the
+			| purchases made with your phone.
+		h3 How do I open the app?
+		p
+		| If you have logged out of the app the previous time you used it, you log in with the Nordea Codes
+		| app. If you have
+		| not logged out, no separate login is needed, just click the Nordea Pay icon.
+			
 	if galleries.length
 		each gallery, i in galleries
 			h3
@@ -39,3 +55,42 @@ block page-js
 				}
 			});
 		});
+//- block css
+//- 	link(rel="stylesheet", href="/js/lib/fancybox/jquery.fancybox.css")
+//- 				
+//- block content
+//- 	.page-header
+//- 		a(href='/keystone/galleries?new').btn.btn-default.pull-right= user ? 'Add Album' : 'Sign in to Add Album'
+//- 		h1 FAQ
+//- 
+//- 	if galleries.length
+//- 		each gallery, i in galleries
+//- 			h3
+//- 				| #{gallery.name} 
+//- 				small.text-muted= gallery._.publishedDate.format('Do MMM YYYY')
+//- 			
+//- 			.row
+//- 				each image, i in gallery.images
+//- 					.col-xs-4.col-sm-3.col-md-2(style="margin-bottom: 30px;")
+//- 						a(href=image.limit(900,600), title=gallery.name + ' image ' + (i+1), rel=gallery.key).gallery-image
+//- 							img(src=image.fill(300,300), alt=gallery.name + ' image ' + (i+1)).img-thumbnail
+//- 		
+//- 	else
+//- 		.jumbotron.text-center
+//- 			h3(style="margin-bottom:0;margin-top:0;") There are no albums yet.
+//- 
+//- 
+//- block page-js
+//- 	script(src="/js/lib/fancybox/jquery.fancybox.pack.js")
+//- 	script.
+//- 		jQuery(function($) {
+//- 			$('.gallery-image').fancybox({
+//- 				prevEffect: 'none',
+//- 				nextEffect: 'none',
+//- 				closeBtn: false,
+//- 				helpers: {
+//- 					titl: {},
+//- 					buttons: {}
+//- 				}
+//- 			});
+//- 		});

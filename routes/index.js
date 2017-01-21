@@ -5,9 +5,9 @@ const importRoutes = keystone.importer(__dirname);
 keystone.pre('routes', function (req, res, next) {
 	res.locals.navLinks = [
 		{ label: 'Home', key: 'home', href: '/' },
-		{ label: 'Blog', key: 'blog', href: '/blog' },
-		{ label: 'Gallery', key: 'gallery', href: '/gallery' },
-		{ label: 'Contact', key: 'contact', href: '/contact' },
+		{ label: 'Guide', key: 'guide', href: '/guide' },
+		{ label: 'Faq', key: 'faq', href: '/faq' },
+		{ label: 'Stake', key: 'stake', href: '/stake' },
 	];
 	res.locals.user = req.user;
 	next();
@@ -31,10 +31,10 @@ exports = module.exports = function (app) {
 
 	// Views
 	app.get('/', routes.views.index);
-	app.get('/blog/:category?', routes.views.blog);
-	app.all('/blog/post/:post', routes.views.post);
-	app.get('/gallery', routes.views.gallery);
-	app.all('/contact', routes.views.contact);
+	app.get('/guide/:category?', routes.views.blog);
+	app.all('/guide/post/:post', routes.views.post);
+	app.get('/faq', routes.views.gallery);
+	app.all('/stake', routes.views.contact);
 
 	// Downloads
 	app.get('/download/users', routes.download.users);
