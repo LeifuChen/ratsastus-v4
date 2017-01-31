@@ -1,0 +1,48 @@
+.card {
+  background: #FFF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  padding: 10px;
+  margin: 0px;
+  margin-bottom: 4px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.card h1 {
+  margin: 0px;
+  padding: 5px 10px 5px;
+}
+#introduction {
+  padding: 20px;
+}
+h1 {
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 13pt;
+    line-height: 16pt;
+    min-height: 20pt;
+    color: #555;
+}
+.section {
+    max-height: 0px;
+}
+.answer{
+    display: none;
+    max-width: 95%;
+}
+body {
+    margin: 0px;
+}
+h1.expanded + .section {
+    max-height: 3000px;
+}
+h2.opened + .answer {
+    display: block;
+}
+.card p {
+  margin: 0px;
+  padding: 10px 10px 5px;
+}
