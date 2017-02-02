@@ -7,7 +7,7 @@ keystone.pre('routes', function (req, res, next) {
 		{ label: 'Home', key: 'home', href: '/' },
 		{ label: 'Guide', key: 'guide', href: '/guide' },
 		{ label: 'Faq', key: 'faq', href: '/faq' },
-		{ label: 'Stake', key: 'stake', href: '/stake' },
+		{ label: 'Stable', key: 'stable', href: '/stable' },
 	];
 	res.locals.user = req.user;
 	next();
@@ -33,8 +33,8 @@ exports = module.exports = function (app) {
 	app.get('/', routes.views.index);
 	app.get('/guide/:category?', routes.views.blog);
 	app.all('/guide/post/:post', routes.views.post);
-	app.get('/faq', routes.views.gallery);
-	app.all('/stake', routes.views.contact);
+	app.get('/faq', routes.views.faq);
+	app.all('/stable', routes.views.stable);
 
 	// Downloads
 	app.get('/download/users', routes.download.users);

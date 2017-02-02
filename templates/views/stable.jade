@@ -1,0 +1,71 @@
+extends ../layouts/default
+
+block css
+	link(rel="stylesheet", href="/js/lib/fancybox/jquery.fancybox.css")
+	link(rel="stylesheet", href="/styles/map.css")
+	
+block content
+	.page-header
+		h1 Stables
+		p.lead Choose the most suitable stables for you.
+	#map
+	script.
+		function initMap() {
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 11,
+				center: new google.maps.LatLng(60.203427, 24.905329),
+				mapTypeId: 'terrain'
+			});		
+			setMarkers(map);
+		}
+			
+		var stables = [
+			['PURISTINTIE 2', 60.977088, 24.435826],
+			['LEPPÄSTENTIE 7 B', 61.543021, 23.683620],
+			['HUUHDINTIE 7 A', 63.552393, 29.081685],
+			['ANTAKSENTIE 1', 60.327200, 25.705912],
+			['Talosaarentie 283', 60.242380, 25.196613],
+			['KARTANONKAARI 19', 60.2465969, 24.87063860],
+			['LAUTTASAARENTIE 15 B', 60.1608762, 24.88604629],
+			['LAINKAARENTIE 11 A', 60.2575761, 24.9544576],
+			['KISKONTIE 30 B', 60.203427, 24.905329],
+			['RATSASTIE 10', 60.1982516, 24.9103887]
+		];
+			
+		function setMarkers(map) {
+			var image = {
+				url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+				// This marker is 20 pixels wide by 32 pixels high.
+				size: new google.maps.Size(20, 32),
+				// The origin for this image is (0, 0).
+				origin: new google.maps.Point(0, 0),
+				// The anchor for this image is the base of the flagpole at (0, 32).
+				anchor: new google.maps.Point(0, 32)
+			};
+			// Shapes define the clickable region of the icon. The type defines an HTML
+			// <area> element 'poly' which traces out a polygon as a series of X,Y points.
+			// The final coordinate closes the poly by connecting to the first coordinate.
+			var shape = {
+					coords: [1, 1, 1, 20, 18, 20, 18, 1],
+					type: 'poly'
+			};
+			
+			for (var i = 0; i < stables.length; i++) {
+					var stable = stables[i];
+					var marker = new google.maps.Marker({
+						position: {lat: stable[1], lng: stable[2]},
+						map: map,
+						icon: image,
+						shape: shape,
+						title: stable[0]
+					});
+					var infowindow = new google.maps.InfoWindow({
+						content: '<div>Welcome to choose a stable!</div>'
+					});
+					marker.addListener('click', function() {
+						infowindow.open(map, marker);
+					});
+			}			
+		}
+	
+	script(async, defer, src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDCgWoJXYL8q2cMzPupZQYig2IfIo7OYMA&callback=initMap')

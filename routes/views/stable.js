@@ -30,8 +30,8 @@ exports = module.exports = function (req, res) {
 
 	});
 
-	view.render('contact', {
-		section: 'contact',
+	view.render('stable', {
+		section: 'stable',
 	});
 
 }

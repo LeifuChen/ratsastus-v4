@@ -2,8 +2,8 @@ var keystone = require('keystone');
 
 keystone.init({
 
-	'name': 'Keystone Demo',
-	'brand': 'Demo',
+	'name': 'Ratsastus',
+	'brand': 'Ratsastus',
 
 	'favicon': 'public/favicon.ico',
 	'less': 'public',
@@ -51,5 +51,9 @@ keystone.set('nav', {
 	'users': 'users',
 	'field-tests': 'things'
 });
+
+keystone.set('google api key', 'AIzaSyDCgWoJXYL8q2cMzPupZQYig2IfIo7OYMA');
+keystone.set('google server api key', 'your-server-key');
+keystone.set('default region', 'fi');
 
 keystone.start();
