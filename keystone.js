@@ -13,9 +13,6 @@ keystone.init({
 	'view engine': 'jade',
 
 	'auto update': true,
-	'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/keystone-demo',
-	'cloudinary config': 'cloudinary://333779167276662:_8jbSi9FB3sWYrfimcl8VKh34rI@keystone-demo',
-
 	'session': true,
 	'auth': true,
 	'user model': 'User',
