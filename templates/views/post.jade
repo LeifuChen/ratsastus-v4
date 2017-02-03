@@ -11,7 +11,7 @@ block content
 	else
 		.row
 			.col-md-8.col-md-offset-2
-				p: a(href='/blog').text-muted &larr; back to the blog
+				p: a(href='/guide').text-muted &larr; back to the blog
 				hr
 				article
 					header
@@ -27,7 +27,7 @@ block content
 								if post.categories && post.categories.length
 									|  in 
 									each cat, cat_i in post.categories
-										a(href='/blog/' + cat.key)= cat.name
+										a(href='/guide/' + cat.key)= cat.name
 										if cat_i < post.categories.length - 1
 											| , 
 										else

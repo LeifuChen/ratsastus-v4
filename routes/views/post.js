@@ -77,7 +77,7 @@ exports = module.exports = function (req, res) {
 				validationErrors = err.errors;
 			} else {
 				req.flash('success', 'Your comment was added.');
-				return res.redirect('/blog/post/' + locals.post.key + '#comment-id-' + newComment.id);
+				return res.redirect('/guide/post/' + locals.post.key + '#comment-id-' + newComment.id);
 			}
 			next();
 		});
@@ -116,7 +116,7 @@ exports = module.exports = function (req, res) {
 				comment.save(function (err) {
 					if (err) return res.err(err);
 					req.flash('success', 'Your comment has been deleted.');
-					return res.redirect('/blog/post/' + locals.post.key);
+					return res.redirect('/guide/post/' + locals.post.key);
 				});
 			});
 	});
