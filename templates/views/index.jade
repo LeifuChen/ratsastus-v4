@@ -4,8 +4,8 @@ block content
 	div(style="padding-left: 5vw; padding-right: 5vw;").jumbotron
 		h1 Ratsastus
 		.lead This site demonstrates common patterns in <a href='https://fi.wikipedia.org/wiki/Ratsastus', target='_blank'>Ratsastus</a>.
-		a(href='http://github.com/keystonejs/keystone-demo', target='_blank', title='View on GitHub').btn.btn-lg.btn-primary Get Started
-		a(href='http://www.keystonejs.com/docs', target='_blank', title='KeystoneJS Documentation').btn.btn-lg.btn-link Read the Docs
+		a(href='/guide/post/miksi-ratsastus', target='_blank', title='View on GitHub').btn.btn-lg.btn-primary Get Started
+		a(href='/faq', target='_blank', title='KeystoneJS Documentation').btn.btn-lg.btn-link Read the FAQ
 	.row
 		.col-sm-8
 			h3: a(href='/guide') RIDING GUIDE
@@ -29,7 +29,7 @@ block content
 					h3.panel-title: a(href='/keystone/signin') User Login
 				.panel-body
 					p Keystone includes session management and default sign-in and sign-out views.
-					p Sign in with the username <code>demo@keystonejs.com</code> and the password <code>1234</code>
+					p Sign in with the username <code>admin@keystonejs.com</code> and the password <code>1234</code>
 					if user
 						a(href='/keystone').btn.btn-default Open Admin UI
 						a(href='/keystone/signout').btn.btn-link Sign out
@@ -42,7 +42,3 @@ block content
 				.panel-body
 					p The 404 and 500 views demonstrate how to set up error handlers for your application.
 					a(href='/hey-this-isnt-a-valid-url').btn.btn-default Read more
-	
-	div(style="margin-top: 60px; padding-left: 10vw; padding-right: 10vw;").jumbotron.text-center
-		h2 We'll handle the back end, you handle the front
-		p KeystoneJS isn't opinionated about how you design or build the front-end of your site. Use jQuery, Angular, React.js with LESS, SASS or css-modules and any node.js template language.

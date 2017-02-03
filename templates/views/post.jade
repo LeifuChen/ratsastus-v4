@@ -11,8 +11,6 @@ block content
 	else
 		.row
 			.col-md-8.col-md-offset-2
-				p: a(href='/guide').text-muted &larr; back to the blog
-				hr
 				article
 					header
 						h1= post.name
@@ -33,7 +31,7 @@ block content
 										else
 											|  
 								if post.author
-									| by #{post.author.name.full}
+									|  by #{post.author.name.full}
 						hr
 						!= post.content.full
 					//-comments
