@@ -3,7 +3,6 @@ extends ../layouts/default
 include ../mixins/post
 block content
 	.page-header
-		a(href='/keystone/posts?new').btn.btn-default.pull-right= user ? 'Write Post' : 'Sign in to Write Post'
 		h1=category ? category.name : 'Guide'
 	.row
 		.col-sm-8
@@ -18,9 +17,8 @@ block content
 							strong #{posts.last}
 							|  of 
 							strong #{posts.total}
-							|  posts
-					else
-						.lead.text-muted Showing #{utils.plural(posts.results.length, '* post')}
+							|  guides
+
 					.blog
 						each post in posts.results
 							+post(post)
@@ -40,10 +38,10 @@ block content
 				else
 					if category
 						.jumbotron.text-center
-							h3(style="margin-bottom:0;margin-top:0;") No posts in the category #{category.name}.
+							h3(style="margin-bottom:0;margin-top:0;") No guides in the category #{category.name}.
 					else
 						.jumbotron.text-center
-							h3(style="margin-bottom:0;margin-top:0;") There are no posts yet.
+							h3(style="margin-bottom:0;margin-top:0;") There are no guides yet.
 		.col-sm-4
 			if categories.length
 				.lead.text-muted Categories
