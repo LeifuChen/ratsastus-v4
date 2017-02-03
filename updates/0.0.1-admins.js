@@ -8,9 +8,8 @@ module.exports = function (done) {
 			last: 'User'
 		},
 		email: 'demo@keystonejs.com',
-		password: 'demo',
+		password: '1234',
 		isAdmin: true,
-		isProtected: false,
 	})
 	.save(done);
 };
