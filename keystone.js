@@ -13,7 +13,7 @@ keystone.init({
 	'view engine': 'jade',
 
 	'auto update': true,
-	'mongo': process.env.MONGO_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/ratsastus-v4',
+	'mongo': process.env.MONGODB_URI || process.env.MONGOLAB_URI || 'mongodb://localhost/ratsastus-v4',
 	'cloudinary config': 'cloudinary://153795739328761:Ij0GVP95R0zyCjNwHvMlPqwTcOA@zac',
 	'session': true,
 	'auth': true,
