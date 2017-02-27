@@ -15,6 +15,7 @@ block content
 
 		p Kannattaa käydä tutustumassa talliin ennen tunnille menoa. Samalla voit kysyä lisätietoja ja vinkkejä ratsastuksenopettajalta harrastamisen aloittamiseksi.
 		hr
+	input#searchInput.controls(type='text', placeholder='Enter a location')
 	#map
 	script.
 		var map;
@@ -193,11 +194,49 @@ block content
 				];
 			map = new google.maps.Map(document.getElementById('map'), {
 				center: {lat: 60.203427, lng: 24.905329},
-				zoom: 13,
+				zoom: 10,
 				styles: styles,
 				mapTypeControl: false
 			});		
-				
+			
+			var input = document.getElementById('searchInput');
+			map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
+			
+			var autocomplete = new google.maps.places.Autocomplete(input);
+			autocomplete.bindTo('bounds', map);
+			
+			autocomplete.addListener('place_changed', function() {
+				var place = autocomplete.getPlace();
+				if (!place.geometry) {
+					window.alert("Autocomplete's returned place contains no geometry");
+					return;
+				}
+
+				// If the place has a geometry, then present it on a map.
+				if (place.geometry.viewport) {
+					map.fitBounds(place.geometry.viewport);
+				} else {
+					map.setCenter(place.geometry.location);
+					map.setZoom(20);
+				}
+				marker.setIcon(defaultIcon);
+				marker.setPosition(place.geometry.location);
+				var address = '';
+				if (place.address_components) {
+						address = [
+							(place.address_components[0] && place.address_components[0].short_name || ''),
+							(place.address_components[1] && place.address_components[1].short_name || ''),
+							(place.address_components[2] && place.address_components[2].short_name || '')
+						].join(' ');
+				}
+		
+
+				marker.addListener('mouseover', function() {
+					largeInfowindow.setContent('<div><strong>' + place.name + '</strong></div></div>' + address + '</div>');
+					largeInfowindow.open(map, marker);
+				});
+			});
+			
 			var stables = [
 				{address:'PURISTINTIE 2', name: 'AALTOKANKAAN RATSUTALLIT OY', location: {lat: 60.977088, lng: 24.435826}},
 				{address:'LEPPÄSTENTIE 7 B', name: 'AHASO TMI OUTI AIHKISALO', location: {lat: 61.543021, lng: 23.683620}},
@@ -276,4 +315,4 @@ block content
 			return markerImage;
 		}
 	
-	script(async, defer, src='https://maps.googleapis.com/maps/api/js?key=AIzaSyASycV7pU1xcfmBUBcs7Mc6at-ckvhYf2k&callback=initMap')
+	script(async, defer, src='https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyASycV7pU1xcfmBUBcs7Mc6at-ckvhYf2k&callback=initMap')
