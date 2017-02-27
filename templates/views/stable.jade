@@ -17,62 +17,263 @@ block content
 		hr
 	#map
 	script.
+		var map;
+		var markers = [];
+
 		function initMap() {
-			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 11,
-				center: new google.maps.LatLng(60.203427, 24.905329),
-				mapTypeId: 'terrain'
+			var styles = [
+				{
+					"featureType":"all",
+					"elementType":"geometry.fill",
+					"stylers":[
+							{
+									"weight":"2.00"
+							}
+					]
+				},
+				{
+					"featureType":"all",
+					"elementType":"geometry.stroke",
+					"stylers":[
+							{
+									"color":"#9c9c9c"
+							}
+					]
+				},
+				{
+					"featureType":"all",
+					"elementType":"labels.text",
+					"stylers":[
+							{
+									"visibility":"on"
+							}
+					]
+				},
+				{
+					"featureType":"landscape",
+					"elementType":"all",
+					"stylers":[
+							{
+									"color":"#f2f2f2"
+							}
+					]
+				},
+				{
+					"featureType":"landscape",
+					"elementType":"geometry.fill",
+					"stylers":[
+							{
+									"color":"#ffffff"
+							}
+					]
+				},
+				{
+					"featureType":"landscape.man_made",
+					"elementType":"geometry.fill",
+					"stylers":[
+							{
+									"color":"#ffffff"
+							}
+					]
+				},
+				{
+					"featureType":"poi",
+					"elementType":"all",
+					"stylers":[
+							{
+									"visibility":"off"
+							}
+					]
+				},
+				{
+					"featureType":"road",
+					"elementType":"all",
+					"stylers":[
+							{
+									"saturation":-100
+							},
+							{
+									"lightness":45
+							}
+					]
+				},
+				{
+					"featureType":"road",
+					"elementType":"geometry.fill",
+					"stylers":[
+							{
+									"color":"#eeeeee"
+							}
+					]
+				},
+				{
+					"featureType":"road",
+					"elementType":"labels.text.fill",
+					"stylers":[
+							{
+									"color":"#7b7b7b"
+							}
+					]
+				},
+				{
+					"featureType":"road",
+					"elementType":"labels.text.stroke",
+					"stylers":[
+							{
+									"color":"#ffffff"
+							}
+					]
+				},
+				{
+					"featureType":"road.highway",
+					"elementType":"all",
+					"stylers":[
+							{
+									"visibility":"simplified"
+							}
+					]
+				},
+				{
+					"featureType":"road.arterial",
+					"elementType":"labels.icon",
+					"stylers":[
+							{
+									"visibility":"off"
+							}
+					]
+				},
+				{
+					"featureType":"transit",
+					"elementType":"all",
+					"stylers":[
+							{
+									"visibility":"off"
+							}
+					]
+				},
+				{
+					"featureType":"water",
+					"elementType":"all",
+					"stylers":[
+							{
+									"color":"#46bcec"
+							},
+							{
+									"visibility":"on"
+							}
+					]
+				},
+				{
+					"featureType":"water",
+					"elementType":"geometry.fill",
+					"stylers":[
+							{
+									"color":"#c8d7d4"
+							}
+					]
+				},
+				{
+					"featureType":"water",
+					"elementType":"labels.text.fill",
+					"stylers":[
+							{
+									"color":"#070707"
+							}
+					]
+				},
+				{
+					"featureType":"water",
+					"elementType":"labels.text.stroke",
+					"stylers":[
+							{
+									"color":"#ffffff"
+							}
+					]
+				}
+				];
+			map = new google.maps.Map(document.getElementById('map'), {
+				center: {lat: 60.203427, lng: 24.905329},
+				zoom: 13,
+				styles: styles,
+				mapTypeControl: false
 			});		
-			setMarkers(map);
-		}
+				
+			var stables = [
+				{address:'PURISTINTIE 2', name: 'AALTOKANKAAN RATSUTALLIT OY', location: {lat: 60.977088, lng: 24.435826}},
+				{address:'LEPPÄSTENTIE 7 B', name: 'AHASO TMI OUTI AIHKISALO', location: {lat: 61.543021, lng: 23.683620}},
+				{address:'HUUHDINTIE 7 A', name: 'AHONLAIDAN HARRASTETALLI', location: {lat: 63.552393, lng: 29.081685}},
+				{address:'ANTAKSENTIE 1', name: 'AIKA-TALLI', location: {lat: 60.327200, lng: 25.705912}},
+				{address:'TALOSAARENTIE 283', name: 'AALTOKANKAAN RATSUTALLIT OY', location: {lat: 60.242380, lng: 25.196613}},
+				{address:'KARTANONKAARI 19', name: 'KAARELAN RATSUTALLI', location: {lat: 60.2465969, lng: 24.87063860}},
+				{address:'LAUTTASAARENTIE 15 B', name: 'SUOMATKAN TALLI/BACKMAN', location: {lat: 60.1608762, lng: 24.88604629}},
+				{address:'LAINKAARENTIE 11 A', name: 'TUOMARINKARTANON RATSASTUSOPISTO', location: {lat: 60.2575761, lng: 24.9544576}},
+				{address:'KISKONTIE 30 B', name: 'TUOMARINKYLÄN RATSASTUSKOULU', location: {lat: 60.203427, lng: 24.905329}},
+				{address:'RATSASTIE 10', name: 'TUOMARINKYLÄN RK/RUSKEASUO', location: {lat: 60.1982516, lng: 24.9103887}}
+			];
 			
-		var stables = [
-			['PURISTINTIE 2', 60.977088, 24.435826],
-			['LEPPÄSTENTIE 7 B', 61.543021, 23.683620],
-			['HUUHDINTIE 7 A', 63.552393, 29.081685],
-			['ANTAKSENTIE 1', 60.327200, 25.705912],
-			['Talosaarentie 283', 60.242380, 25.196613],
-			['KARTANONKAARI 19', 60.2465969, 24.87063860],
-			['LAUTTASAARENTIE 15 B', 60.1608762, 24.88604629],
-			['LAINKAARENTIE 11 A', 60.2575761, 24.9544576],
-			['KISKONTIE 30 B', 60.203427, 24.905329],
-			['RATSASTIE 10', 60.1982516, 24.9103887]
-		];
-			
-		function setMarkers(map) {
-			var image = {
-				url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-				// This marker is 20 pixels wide by 32 pixels high.
-				size: new google.maps.Size(20, 32),
-				// The origin for this image is (0, 0).
-				origin: new google.maps.Point(0, 0),
-				// The anchor for this image is the base of the flagpole at (0, 32).
-				anchor: new google.maps.Point(0, 32)
-			};
-			// Shapes define the clickable region of the icon. The type defines an HTML
-			// <area> element 'poly' which traces out a polygon as a series of X,Y points.
-			// The final coordinate closes the poly by connecting to the first coordinate.
-			var shape = {
-					coords: [1, 1, 1, 20, 18, 20, 18, 1],
-					type: 'poly'
-			};
-			
+			// Style the markers a bit. This will be our listing marker icon.
+			var defaultIcon = makeMarkerIcon('0091ff');
+
+			// Create a "highlighted location" marker color for when the user
+			// mouses over the marker.
+			var highlightedIcon = makeMarkerIcon('FFFF24');
+
+			// The following group uses the location array to create an array of markers on initialize.
+			var largeInfowindow = new google.maps.InfoWindow();	
 			for (var i = 0; i < stables.length; i++) {
-					var stable = stables[i];
-					var marker = new google.maps.Marker({
-						position: {lat: stable[1], lng: stable[2]},
-						map: map,
-						icon: image,
-						shape: shape,
-						title: stable[0]
-					});
-					var infowindow = new google.maps.InfoWindow({
-						content: '<div>Welcome to choose a stable!</div>'
-					});
-					marker.addListener('click', function() {
-						infowindow.open(map, marker);
-					});
-			}			
+				// Get the position from the location array.
+				var position = stables[i].location;
+				var address = stables[i].address;
+				var name = stables[i].name;
+				// Create a marker per location, and put into markers array.
+				var marker = new google.maps.Marker({
+					map: map,
+					position: position,
+					address: address,
+					name: name,
+					animation: google.maps.Animation.DROP,
+					icon: defaultIcon,
+					id: i
+				});
+
+				// Push the marker to our array of markers.
+				markers.push(marker);
+		
+				// Two event listeners - one for mouseover, one for mouseout,
+				// to change the colors back and forth.
+				marker.addListener('mouseover', function() {
+					populateInfoWindow(this, largeInfowindow);
+					this.setIcon(highlightedIcon);
+				});
+				marker.addListener('mouseout', function() {
+					this.setIcon(defaultIcon);
+				});
+			};
+			
+		};
+		
+		function populateInfoWindow(marker, infowindow) {
+			// Check to make sure the infowindow is not already opened on this marker.
+			if (infowindow.marker != marker) {
+				infowindow.marker = marker;
+				infowindow.setContent('<div><strong>' + marker.name + '</strong><div></div>' + marker.address + '</div>');
+				infowindow.open(map, marker);
+				// Make sure the marker property is cleared if the infowindow is closed.
+				infowindow.addListener('closeclick', function() {
+					infowindow.marker = null;
+				});
+			}
+		};
+		
+		function makeMarkerIcon(markerColor) {
+			var markerImage = new google.maps.MarkerImage(
+				'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
+				'|40|_|%E2%80%A2',
+				new google.maps.Size(21, 34),
+				new google.maps.Point(0, 0),
+				new google.maps.Point(10, 34),
+				new google.maps.Size(21,34));
+			return markerImage;
 		}
 	
-	script(async, defer, src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDCgWoJXYL8q2cMzPupZQYig2IfIo7OYMA&callback=initMap')
+	script(async, defer, src='https://maps.googleapis.com/maps/api/js?key=AIzaSyASycV7pU1xcfmBUBcs7Mc6at-ckvhYf2k&callback=initMap')
