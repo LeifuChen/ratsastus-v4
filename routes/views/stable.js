@@ -6,32 +6,21 @@ exports = module.exports = function (req, res) {
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 
-	locals.section = 'contact';
-	locals.enquiryTypes = Enquiry.fields.enquiryType.ops;
-	locals.formData = req.body || {};
-	locals.validationErrors = {};
-	locals.enquirySubmitted = false;
+	locals.section = 'stable';
+	locals.data = {stables: [],}
 
-	view.on('post', { action: 'contact' }, function (next) {
+	view.on('init', function (next) {
 
-		var application = new Enquiry.model();
-		var updater = application.getUpdateHandler(req);
+		var q = keystone.list('Location').model.find();
 
-		updater.process(req.body, {
-			flashErrors: true
-		}, function (err) {
-			if (err) {
-				locals.validationErrors = err.errors;
-			} else {
-				locals.enquirySubmitted = true;
-			}
-			next();
+		q.exec(function(err, results) {
+			locals.data.stables = results;
+			next(err);
 		});
-
 	});
 
-	view.render('stable', {
-		section: 'stable',
+    view.render('stable', {
+           section: 'stable',
 	});
 
 }

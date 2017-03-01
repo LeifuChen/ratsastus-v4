@@ -11,7 +11,7 @@ keystone.pre('routes', function (req, res, next) {
 		{ label: 'Mikä on sinun lajisi', key: 'mikae-on-sinun-lajisi', href: '/guide/post/mikae-on-sinun-lajisi' },
 		{ label: 'SRL', key: 'srl', href: '/guide/post/srl' },
 		{ label: 'Faq', key: 'faq', href: '/faq' },
-		{ label: 'Stable', key: 'stable', href: '/stable' },
+		{ label: 'Missä voin ratsastaa', key: 'stable', href: '/stable' },
 	];
 	res.locals.user = req.user;
 	next();
