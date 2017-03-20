@@ -12,11 +12,12 @@ html
 		
 		title= title || 'Ratsastus'
 		link(rel="shortcut icon", href="/SRL_Logo.png", type="image/png")
-		link(href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700', rel='stylesheet')
-		link(href="/styles/themes/" + currentTheme + ".min.css", rel="stylesheet")
+		link(href="/styles/themes/Flatly.min.css", rel="stylesheet")
+		link(href="/styles/font.css", rel="stylesheet")
 		
 		if user && user.canAccessKeystone
 			link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
+		
 		
 		block css
 		block head

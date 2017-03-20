@@ -44,10 +44,10 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif:  "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+@font-family-sans-serif:  "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:       "Calibri", Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
-@font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+@font-family-monospace:   "Calibri", Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
 @font-size-base:          15px;
@@ -872,12 +872,10 @@
 // Bootswatch
 // -----------------------------------------------------
 
-@web-font-path: "https://fonts.googleapis.com/css?family=Lato:400,700,400italic";
-
-.web-font(@path) {
-  @import url("@{path}");
+@font-face {
+  font-family: 'Calibri';
+  src: url('../../fonts/Calibri.ttf')  format('truetype');
 }
-.web-font(@web-font-path);
 
 // Navbar =====================================================================
 

@@ -21,6 +21,7 @@ block content
 	input#searchInput.controls(type='text', placeholder='Enter a location')
 	#map
 	script.
+		var data='#{JSON.stringify(stables)}';
 		var map;
 		var markers = [];
 

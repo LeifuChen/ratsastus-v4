@@ -19,8 +19,6 @@ exports = module.exports = function (req, res) {
 		});
 	});
 
-    view.render('stable', {
-           section: 'stable',
-	});
+    view.render('stable');
 
 }
