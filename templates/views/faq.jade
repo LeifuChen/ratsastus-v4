@@ -1,5 +1,7 @@
 extends ../layouts/default
 
+include ../mixins/commenting
+
 block css
 	link(rel="stylesheet", href="/js/lib/fancybox/jquery.fancybox.css")
 	link(rel="stylesheet", href="/styles/card.css")
@@ -9,7 +11,7 @@ block content
 		h3 FAQ
 		p.lead Haluamme tehdä ratsastusharrastuksen aloittamisesta sinulle mahdollisimman helpoksi.
 		
-	.container									
+	.container		
 		h1 1. Miten löydän itselleni sopivan ratsastusryhmän?
 		p Aivan uudelle ratsastuksen harrastajalle sopivat parhaiten ratsastuksen alkeiskurssit, joilla harjoitellaan kaikki asiat aivan perusteista lähtien. Alkeiskurssille tarvitset mukaasi vain avointa mieltä. Kurssilla harjoitellaan myös tallissa toimimista sekä hevosen hoitamista. 
 		
@@ -51,12 +53,18 @@ block content
 		p Vuonna 2017 on julkaistu myös uusi Green Card Plus -vakuutuskortti, johon on liitetty vakuutuksen lisäksi myös ratsastusaiheisen Hippos-lehden vuosikerta. Green Card Plus -kortin voi lunastaa kuka tahansa kiinnostunut. Vakuutus on voimassa sekä kotimaassa että ulkomailla.
 
 		p Molemmat vakuutuskortit voi tilata Ratsastajainliiton nettisivuilta osoitteesta www.ratsastus.fi.
+		
+	.container(style="margin-top:20px;")
+		.panel
+				p.panel-body Jäikö kysyttävää? Ota yhteyttä Ratsastajainliittoon oheisen palautelaatikon kautta. Muistathan jättää yhteystietosi, mikäli haluat, että palaamme sinulle asiaan.
+				+comment-form()
+			
 	script.
 					[].forEach.call(document.querySelectorAll("h2"), function(questionEl) {
 					    var answerNodes = [];
 					    var node = questionEl.nextSibling;
 					    var stopTagNames = ["H1","H2","SCRIPT","STYLE"];
-					    while (!!node && stopTagNames.indexOf(node.tagName) === -1) {
+					    while (!!node && stopTagNames.indexOf(node.tagName) === -1 && node.cla) {
 					        answerNodes.push(node);
 					        node = node.nextSibling;
 					    }
@@ -141,4 +149,35 @@ block content
 					        parent.removeChild(cardNode);
 					        wrapper.appendChild(cardNode);
 					    });
+					});
+					
+					jQuery(function($) {
+						
+						var comments = $('#comments');
+						var input = $('.comment-field-input');
+						var submit = comments.find('button[type=submit]');
+
+						
+						// Scroll to comments and focus input field
+						function scrollToComments(e) {
+							
+							e.preventDefault();
+							
+							$('html, body').animate({ scrollTop: comments.offset().top }, 250);
+							
+							input.eq(0).focus();
+						}
+						$('[href="#comments"]').click( scrollToComments );
+						
+						
+						
+						// Check if field has content: enable/disable submit. Disable by default
+						submit.attr('disabled','disabled');
+						input.keyup(function() {
+							if ($.trim($(this).val())) {
+								submit.removeAttr('disabled');
+							} else {
+								submit.attr('disabled','disabled');
+							}
+						});
 					});
