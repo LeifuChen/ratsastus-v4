@@ -34,10 +34,6 @@ block content
 									|  by #{post.author.name.full}
 						hr
 						!= post.content.full
-					//-comments
-					div
-						+comment-form()
-						+comment-thread(comments)
 
 
 block page-js
