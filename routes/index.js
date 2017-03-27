@@ -37,7 +37,7 @@ exports = module.exports = function (app) {
 	app.get('/', routes.views.index);
 	app.get('/guide/:category?', routes.views.blog);
 	app.all('/guide/post/:post', routes.views.post);
-	app.get('/faq', routes.views.faq);
+	app.all('/faq', routes.views.faq);
 	app.all('/stable', routes.views.stable);
 
 	// Downloads
