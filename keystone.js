@@ -44,12 +44,11 @@ keystone.set('locals', {
 keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
-	'posts': ['posts', 'post-comments', 'post-categories'],
-	'galleries': 'galleries',
-	'enquiries': 'enquiries',
-	'users': 'users',
-	'field-tests': 'things'
+	'posts': ['posts', 'post-comments'],
+	'users': 'users'
 });
+
+keystone.set('signout redirect', '/back');
 
 keystone.set('google api key', 'AIzaSyDCgWoJXYL8q2cMzPupZQYig2IfIo7OYMA');
 keystone.set('google server api key', 'your-server-key');
