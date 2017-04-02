@@ -1,5 +1,5 @@
 var keystone = require('keystone');
-var Gallery = keystone.list('Gallery');
+var Faq = keystone.list('Faq');
 var PostComment = keystone.list('PostComment');
 
 exports = module.exports = function (req, res) {
@@ -8,10 +8,16 @@ exports = module.exports = function (req, res) {
 	var locals = res.locals;
 
 	locals.section = 'faq';
-	// Load the current post
+	locals.data = {
+		faqs: [],
+	};
 
 	view.on('init', function (next) {
-		next();
+		var  q = Faq.model.find();
+		q.exec(function(err, results) {
+			locals.data.faqs = results;
+			next(err);
+		});
 	});
 
 	view.on('post', { action: 'comment.create' }, function (next) {

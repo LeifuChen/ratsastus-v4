@@ -12,85 +12,15 @@ block content
 		p.lead Haluamme tehdä ratsastusharrastuksen aloittamisesta sinulle mahdollisimman helpoksi.
 		
 	.container
-		h1 1. Miten löydän itselleni sopivan ratsastusryhmän?
-		p Aivan uudelle ratsastuksen harrastajalle sopivat parhaiten ratsastuksen alkeiskurssit, joilla harjoitellaan kaikki asiat aivan perusteista lähtien. Alkeiskurssille tarvitset mukaasi vain avointa mieltä. Kurssilla harjoitellaan myös tallissa toimimista sekä hevosen hoitamista. 
+	each item in data.faqs
+		h1 #{item.no} #{item.question}
+		p= item.answer
 		
-		p Kokeneempi ratsastaja löytää parhaiten sopivan ryhmän, kun miettii ensin, mikä on oma taitotaso. Moni talli ilmoittaa tasoryhmät merkkisuoritusten mukaan. Jos olet suorittanut vaikkapa ratsastuksen C-merkin, tason kertominen on helppoa. Taitotason kertomisessa kannattaa olla rehellinen, jotta ratsastuksenopettaja osaa sijoittaa sinut sopivaan ryhmään. Jos olet epävarma, kysy ihmeessä vinkkejä opettajalta. Opettaja pystyy myös muokkaamaan ratsastustunnin jokaiselle sopivaksi, vaikka taso hiukan vaihtelisi ratsastajien välillä.
-		
-		h1 2. Mitä ratsastustunti pitää sisällään?
-		p Tallille kannattaa saapua hyvissä ajoin ennen omaa ratsastustuntia. Hevosen kuntoon laittaminen ja hoitaminen ennen ja jälkeen ratsastustunnin on osa ratsastustunnin kokonaisuutta. Näihin hoitotoimenpiteisiin kannattaa varata puoli tuntia ennen ja jälkeen ratsastustunnin.
-
-		p Itse ratsastustunti alkaa usein sillä, että hevoset seisovat rinnakkain keskellä kenttää ns. alkukaarrossa. Silloin hevoset ovat paikallaan ja ratsastaja nousee selkään. Selkään nousussa on hyvä varsinkin alkuun käyttää avustajaa. Myös jalustimet säädetään ratsastajalle sopivaksi. Ihan aluksi ratsastetaan käyntiä ympäri kenttää vapain ohjin, eli hevonen verryttelee käynnissä. Varsinaisen alkuverryttelyn jälkeen ryhdytään tunnista riippuen ravaamaan. Alkuravit suoritetaan kevyessä ravissa, eli ratsastaja nousee satulasta ylös joka toisella askeleella. Alkeiskurssilla kevyttä ravia harjoitellaan lyhyitä pätkiä kerrallaan ja usein mukana on taluttaja. 
-
-		p Ratsastuksenopettaja suunnittelee tehtävät tunnin tason mukaan. Tunti voi olla painottunut johonkin tiettyyn tehtävään, kuten vaikkapa laukannoston opetteluun. Myös ratsastusradan teitä harjoitellaan. 
-		
-		p Ratsastustunnin loppupuolella hevoset loppuverryttelevät käynnissä pitkin ohjin. Aivan lopuksi kaarretaan samoin kuin tunnin aluksi kentän keskelle kaartoon laskeutumaan ratsailta. 
-
-		p Ratsastustunti on rentouttava elämys kiireisen arjen keskellä. Ratsastusryhmän muista ratsastajista tulee usein ystäviä myös vapaa-ajalla. Tallilla toimii monesti myös ratsastusseura, jonka toimintaan ja porukkaan kannattaa tutustua.
-		
-		h1 3. Mitä ratsastustunti maksaa?
-		p Ratsastustuntien hinnat vaihtelevat tallista, tuntimuodosta ja paikkakunnasta riippuen noin 25 eurosta 60 euroon. Pienryhmässä ratsastaminen ja yksityistunnit maksavat ns. perustuntia enemmän.
-
-		h1 4. Missä vaiheessa minun pitää hankkia oma kypärä?
-		p Tallilta voi lainata harrastuksen alkuun kypärän. Kun harrastus vakiintuu, oma kypärä on usein ensimmäinen hankinta. Hyvän ja turvallisen kypärän | (VG1-standardin täyttävän) saa jo muutamalla kympillä.
-
-		h1 5. Miten opin hoitamaan hevosta?
-		p Hevosen hoitaminen on oleellinen osa harrastusta. Ratsastuksen alkeiskurssilla harjoitellaan myös hevostaitoja. Hevosta oppii parhaiten hoitamaan harjoittelemalla asioita käytännössä. Hyödyllistä tietoa saa myös seuraamalla osaavien ratsastajien tai ratsastuksenopettajan toimintaa. Ja aina kannattaa kysyä!
-
-		p Kannattaa lukea myös paljon hevosaiheista kirjallisuutta ja lehtiä. Moni talli ja ratsastusseura järjestävät erilaisia hevoskerhoja ja hevostaitokursseja, joilta saa lisätietoa hevosen käsittelystä ja hoitamisesta. Hevostaitomerkkejä on myös mahdollista suorittaa.
-
-		h1 6. Kuinka nopeasti opin ratsastamaan?
-		p Ratsastuksen perustaitojen oppiminen riippuu paljon ihmisestä. Jollain saattaa olla luonnostaan hyvä tasapaino ja kehonhallinta, jolloin oppiminen on nopeampaa. Ja mitä enemmän ratsastaa, sitä nopeammin oppii. Usein muutaman vuoden ratsastamisen jälkeen tasapaino on kehittynyt ja ratsastaja osaa monia perusasioita. Toisaalta ratsastus on lajina vaativa, eikä aivan valmiiksi tulla koskaan.
-
-		h1 7. Kuinka turvallista on ratsastusharrastus?
-		p Kaikkeen eläinten kanssa toimimiseen liittyy riskejä. Aloittelevan ratsastajan on hyvä valita Ratsastajainliiton suosittelema ratsastuskoulu, jossa hevoset ovat tottuneita monenlaisiin ratsastajiin. Ratsastuksenopettaja valitsee jokaiselle ratsastajalle juuri omaan tasoon sopivan hevosen. Ammattitaitoinen ratsastuksenopettaja vastaa toiminnan turvallisuudesta.
-
-		p Hevonen on eläimenä vaistojensa varassa toimiva pakoeläin, ja kilteinkin yksilö voi pelästyä. Hevosen selästä voi pudota. Useimmiten putoaminen on kuitenkin vain muksahdus, eikä mitään säikähdystä suurempaa satu.
-
-		h1 8. Mikä on Green Card?
-		p Green Card on ratsastuksen vakuutuskortti, joka on tarkoitettu Ratsastajainliiton jäsentalleilla ratsastaville harrastajille. Vakuutus kattaa kaikki ratsastukseen ja hevosen käsittelyyn liittyvät tapaturmat. Ratsastaja saa Green Card -vakuutuskortin lunastuksen yhteydessä myös Nouse Ratsaille -opasvihkosen harrastuksen tueksi.
-
-		p Vuonna 2017 on julkaistu myös uusi Green Card Plus -vakuutuskortti, johon on liitetty vakuutuksen lisäksi myös ratsastusaiheisen Hippos-lehden vuosikerta. Green Card Plus -kortin voi lunastaa kuka tahansa kiinnostunut. Vakuutus on voimassa sekä kotimaassa että ulkomailla.
-
-		p Molemmat vakuutuskortit voi tilata Ratsastajainliiton nettisivuilta osoitteesta www.ratsastus.fi.
-		
-	.container(style="margin-top:20px;")
-		.panel
-				p.panel-body Jäikö kysyttävää? Ota yhteyttä Ratsastajainliittoon oheisen palautelaatikon kautta. Muistathan jättää yhteystietosi, mikäli haluat, että palaamme sinulle asiaan.
-				+comment-form()
+	h5.panel(style="margin-top:20px;")
+			p.panel-body Jäikö kysyttävää? Ota yhteyttä Ratsastajainliittoon oheisen palautelaatikon kautta. Muistathan jättää yhteystietosi, mikäli haluat, että palaamme sinulle asiaan.
+			+comment-form()
 			
 	script.
-					[].forEach.call(document.querySelectorAll("h2"), function(questionEl) {
-					    var answerNodes = [];
-					    var node = questionEl.nextSibling;
-					    var stopTagNames = ["H1","H2","SCRIPT","STYLE"];
-					    while (!!node && stopTagNames.indexOf(node.tagName) === -1 && node.cla) {
-					        answerNodes.push(node);
-					        node = node.nextSibling;
-					    }
-					    if (answerNodes.length === 0) {
-					        return;
-					    }
-
-					    var parent = questionEl.parentElement;
-					    var wrapper = document.createElement("div");
-					    wrapper.classList.add("answer");
-					    parent.insertBefore(wrapper, questionEl.nextSibling);
-
-					    [].forEach.call(answerNodes, function(answerNode) {
-					        parent.removeChild(answerNode);
-					        wrapper.appendChild(answerNode);
-					    });
-					});
-
-					// Attach 'expand/collapse' click handlers to question h2 elements:
-					//
-					[].forEach.call(document.querySelectorAll("h2"), function(questionEl) {
-					    questionEl.addEventListener("click", function() {
-					        questionEl.classList.toggle("opened");
-					    });
-					});
-
 					// Gather all elements between `h1` elements (i.e. questions & answer) into
 					// wrapper divs:
 					//
@@ -98,7 +28,7 @@ block content
 					[].forEach.call(document.querySelectorAll("h1"), function(sectionEl) {
 					    var faqNodes = [];
 					    var node = sectionEl.nextSibling;
-					    var stopTagNames = ["H1", "SCRIPT","STYLE"];
+					    var stopTagNames = ["H1", "SCRIPT", "STYLE", "H5"];
 					    while (!!node && stopTagNames.indexOf(node.tagName) === -1) {
 					        faqNodes.push(node);
 					        node = node.nextSibling;
@@ -131,7 +61,7 @@ block content
 					[].forEach.call(document.querySelectorAll("h1"), function(cardEl) {
 					    var cardNodes = [];
 					    var node = cardEl.nextSibling;
-					    var stopTagNames = ["H1", "SCRIPT","STYLE"];
+					    var stopTagNames = ["H1", "SCRIPT","STYLE", "H5"];
 					    while (!!node && stopTagNames.indexOf(node.tagName) === -1) {
 					        cardNodes.push(node);
 					        node = node.nextSibling;

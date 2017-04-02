@@ -5,7 +5,7 @@ keystone.init({
 	'name': 'Ratsastus',
 	'brand': 'Ratsastus',
 
-	'favicon': 'public/favicon.ico',
+	'favicon': 'public/favicon_rat.ico',
 	'less': 'public',
 	'static': 'public',
 
