@@ -10,6 +10,8 @@ Location.add({
 	name: {type: String, inital: true, default: '', required: true, index: true},
 	address: {type: String, index: true, unique: true},
 	location: {type: Types.Location, required: false},
+  geo: {type: Types.Location, required: false},
+  web: {type: Types.Url, inital: true, default: '', required: false},
   description: {type: Types.Textarea},
   createdBy: {type: Types.Relationship, ref: 'User', index: true, many: false},
   createdAt: {type: Types.Datetime, default: Date.now},

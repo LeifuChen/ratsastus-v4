@@ -21,7 +21,7 @@ block content
 	input#searchInput.controls(type='text', placeholder='Enter a location')
 	#map
 	script.
-		var data='#{JSON.stringify(stables)}';
+		var stables=!{JSON.stringify(data.stables)};
 		var map;
 		var markers = [];
 
@@ -241,19 +241,6 @@ block content
 				});
 			});
 			
-			var stables = [
-				{address:'PURISTINTIE 2', name: 'AALTOKANKAAN RATSUTALLIT OY', location: {lat: 60.977088, lng: 24.435826}},
-				{address:'LEPPÄSTENTIE 7 B', name: 'AHASO TMI OUTI AIHKISALO', location: {lat: 61.543021, lng: 23.683620}},
-				{address:'HUUHDINTIE 7 A', name: 'AHONLAIDAN HARRASTETALLI', location: {lat: 63.552393, lng: 29.081685}},
-				{address:'ANTAKSENTIE 1', name: 'AIKA-TALLI', location: {lat: 60.327200, lng: 25.705912}},
-				{address:'TALOSAARENTIE 283', name: 'AALTOKANKAAN RATSUTALLIT OY', location: {lat: 60.242380, lng: 25.196613}},
-				{address:'KARTANONKAARI 19', name: 'KAARELAN RATSUTALLI', location: {lat: 60.2465969, lng: 24.87063860}},
-				{address:'LAUTTASAARENTIE 15 B', name: 'SUOMATKAN TALLI/BACKMAN', location: {lat: 60.1608762, lng: 24.88604629}},
-				{address:'LAINKAARENTIE 11 A', name: 'TUOMARINKARTANON RATSASTUSOPISTO', location: {lat: 60.2575761, lng: 24.9544576}},
-				{address:'KISKONTIE 30 B', name: 'TUOMARINKYLÄN RATSASTUSKOULU', location: {lat: 60.203427, lng: 24.905329}},
-				{address:'RATSASTIE 10', name: 'TUOMARINKYLÄN RK/RUSKEASUO', location: {lat: 60.1982516, lng: 24.9103887}}
-			];
-			
 			// Style the markers a bit. This will be our listing marker icon.
 			var defaultIcon = makeMarkerIcon('0091ff');
 
@@ -265,20 +252,23 @@ block content
 			var largeInfowindow = new google.maps.InfoWindow();	
 			for (var i = 0; i < stables.length; i++) {
 				// Get the position from the location array.
-				var position = stables[i].location;
+				var position = {lat: stables[i].location.geo[1], lng: stables[i].location.geo[0]};
+				console.log(position);
 				var address = stables[i].address;
 				var name = stables[i].name;
+				var web = stables[i].web;
 				// Create a marker per location, and put into markers array.
 				var marker = new google.maps.Marker({
 					map: map,
 					position: position,
 					address: address,
 					name: name,
+					web: web,
 					animation: google.maps.Animation.DROP,
 					icon: defaultIcon,
 					id: i
 				});
-
+				console.log(marker.position);
 				// Push the marker to our array of markers.
 				markers.push(marker);
 		
@@ -299,7 +289,8 @@ block content
 			// Check to make sure the infowindow is not already opened on this marker.
 			if (infowindow.marker != marker) {
 				infowindow.marker = marker;
-				infowindow.setContent('<div><strong>' + marker.name + '</strong><div></div>' + marker.address + '</div>');
+				infowindow.setContent('<div><strong>' + marker.name + '</strong><div></div>' 
+					+ marker.address + '</div><div><a href="http://' + marker.web + '">' + marker.web + '</a></div>' );
 				infowindow.open(map, marker);
 				// Make sure the marker property is cleared if the infowindow is closed.
 				infowindow.addListener('closeclick', function() {

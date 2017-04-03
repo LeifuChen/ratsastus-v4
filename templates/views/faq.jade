@@ -7,11 +7,10 @@ block css
 	link(rel="stylesheet", href="/styles/card.css")
 	
 block content
-	.page-header
-		h3 FAQ
-		p.lead Haluamme tehdä ratsastusharrastuksen aloittamisesta sinulle mahdollisimman helpoksi.
-		
-	.container
+	.page-header(style="margin-bottom:10px;")
+		h2 FAQ
+		p.lead(style="margin-bottom:5px;") Haluamme tehdä ratsastusharrastuksen aloittamisesta sinulle mahdollisimman helpoksi.
+	
 	each item in data.faqs
 		h1 #{item.no} #{item.question}
 		p= item.answer
