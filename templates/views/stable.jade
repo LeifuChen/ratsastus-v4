@@ -252,11 +252,11 @@ block content
 			var largeInfowindow = new google.maps.InfoWindow();	
 			for (var i = 0; i < stables.length; i++) {
 				// Get the position from the location array.
-				var position = {lat: stables[i].location.geo[1], lng: stables[i].location.geo[0]};
+				var position = {lat: stables[i].latitude, lng: stables[i].longitude};
 				console.log(position);
-				var address = stables[i].address;
+				var address = stables[i].street + ", " + stables[i].postcode + " " + stables[i].city;
 				var name = stables[i].name;
-				var web = stables[i].web;
+				var web = stables[i].website;
 				// Create a marker per location, and put into markers array.
 				var marker = new google.maps.Marker({
 					map: map,
@@ -290,7 +290,7 @@ block content
 			if (infowindow.marker != marker) {
 				infowindow.marker = marker;
 				infowindow.setContent('<div><strong>' + marker.name + '</strong><div></div>' 
-					+ marker.address + '</div><div><a href="http://' + marker.web + '">' + marker.web + '</a></div>' );
+					+ marker.address + '</div><div><a href="http://' + marker.web + '" target="_blank">' + marker.web + '</a></div>' );
 				infowindow.open(map, marker);
 				// Make sure the marker property is cleared if the infowindow is closed.
 				infowindow.addListener('closeclick', function() {

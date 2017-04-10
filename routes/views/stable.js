@@ -11,7 +11,7 @@ exports = module.exports = function (req, res) {
 
 	view.on('init', function (next) {
 
-		var q = keystone.list('Location').model.find();
+		var q = keystone.list('Stable').model.find();
 
 		q.exec(function(err, results) {
 			locals.data.stables = results;
