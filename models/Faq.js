@@ -7,8 +7,8 @@ var Faq = new keystone.List('Faq', {
 
 Faq.add({
   no: {type: Types.Number, initial: true, required: false },
-	question: { type: String, initial: true, required: false },
-  answer: { type: String, initial: true, required: false },
+	question: { type: Types.Textarea, height: 200, initial: true, required: false },
+  answer: { type: Types.Textarea, height: 200, initial: true, required: false },
 });
 
 
