@@ -1,9 +1,7 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
-var Faq = new keystone.List('Faq', {
-	autokey: { from: 'name', path: 'key', unique: true },
-});
+var Faq = new keystone.List('Faq');
 
 Faq.add({
   no: {type: Types.Number, initial: true, required: false },

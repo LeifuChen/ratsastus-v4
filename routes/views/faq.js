@@ -13,7 +13,7 @@ exports = module.exports = function (req, res) {
 	};
 
 	view.on('init', function (next) {
-		var  q = Faq.model.find();
+		var  q = Faq.model.find().sort('no');
 		q.exec(function(err, results) {
 			locals.data.faqs = results;
 			next(err);
