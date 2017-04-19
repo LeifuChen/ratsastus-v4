@@ -3,6 +3,11 @@ extends ../layouts/default
 include ../mixins/commenting
 include ../mixins/post
 
+block bigImage
+	if post.image.exists
+		div(style="margin-bottom: 20px;")
+			img(src=post._.image.fit(750,500)).img-responsive(style="margin-top: -30px;")
+				
 block content
 	if !post
 		.jumbotron.text-center
@@ -14,9 +19,7 @@ block content
 				article
 					header
 						h1= post.name
-						if post.image.exists
-							div(style="margin-bottom: 20px; margin-top: 20px;")
-								img(src=post._.image.fit(750,500)).img-responsive
+
 						div
 							p.text-muted.text-small Posted 
 								if post.publishedDate

@@ -1,8 +1,9 @@
 extends ../layouts/default
 
-block content
-	img(src="../../images/mainpage.jpg").img-responsive
+block bigImage
+	img(src="../../images/mainpage.jpg" style="margin-top: -30px;").img-responsive
 
+block content
 	.row
 		.col-sm-8
 			h3: a(href='/guide') Tervetuloa ratsastamaan!
@@ -10,22 +11,3 @@ block content
 			p Oletko aina haaveillut ratsastuksen aloittamisesta?
 			p Tämä appi on suunniteltu sinulle, joka olet kiinnostunut hevosista ja ratsastuksesta. Pääset näillä otsikoilla hyvin harrastuksessasi alkuun ja eteenpäin.
 			p Nautinnollisia hetkiä ihanan lajin parissa!
-			hr
-
-		.col-sm-4
-				
-			.panel.panel-default
-				.panel-heading
-					h3.panel-title: a(href='/404') Latest Events
-				.panel-body
-					p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rutrum elit id lorem condimentum, in porta purus sagittis. Sed mauris sapien, interdum vel ornare in, tincidunt ac diam. Pellentesque eu tellus mi. 
-					a(href='/hey-this-isnt-a-valid-url').btn.btn-default Read more
-
-
-	div(style="width: 35px; padding: 5px; border: 0; box-shadow: 0; display: inline;")
-		a(href='https://www.facebook.com/suomenratsastajainliitto/?ref=aymt_homepage_panel', target='_blank')
-			img(src='../../images/logo-facebook.svg', style="width: 50px; margin:10px;", alt='Facebook')
-		a(href='https://www.instagram.com/ratsastajainliitto/?hl=fi', target='_blank')
-			img(src='../../images/logo-instagram.svg', style="width: 50px; margin:10px;", alt='Instagram')
-		a(href='https://twitter.com/ratsastus_fi', target='_blank')
-			img(src='../../images/logo-twitter.svg', style="width: 50px; margin:10px;", alt='Twitter')
