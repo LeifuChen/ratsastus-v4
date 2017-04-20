@@ -2,8 +2,8 @@ var keystone = require('keystone');
 
 keystone.init({
 
-	'name': 'Ratsastus',
-	'brand': 'Ratsastus',
+	'name': 'Ratsastamaan',
+	'brand': 'Ratsastamaan',
 
 	'favicon': 'public/favicon_rat.ico',
 	'less': 'public',
