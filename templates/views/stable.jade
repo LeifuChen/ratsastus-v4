@@ -7,16 +7,15 @@ block css
 block content
 	.page-header
 		h1 Missä voin ratsastaa
-		div(style="margin-bottom: 20px; margin-top: 20px;")
+		div(style="margin-bottom: 20px; display:flex; justify-content:center;align-items: center;")
 			img(src="http://res.cloudinary.com/zac/image/upload/c_fit,h_600,q_80/xxpkowp1nacjns3ovlrv").img-responsive
 		
-	.container
 		p Ratsastuspalveluja tarjoavia yrityksiä on lukuisia ympäri Suomen. Osa talleista järjestää perinteistä ratsastuskoulutoimintaa, osa maasto- ja vaellusratsastuksia, suurin osa talleista tarjoaa monipuolisesti erilaista ratsastus- ja hevostoimintaa.
 
 		p Kun valitset Suomen Ratsastajainliiton jäsentallin, saat ammattitaitoisen opettajan, opetuskäyttöön soveltuvan, koulutetun hevosen sekä turvalliset olosuhteet harrastamiselle. Lisäksi tiedät, että hevosten hyvinvoinnista huolehditaan.
 
 		p Kannattaa käydä tutustumassa talliin ennen tunnille menoa. Samalla voit kysyä lisätietoja ja vinkkejä ratsastuksenopettajalta harrastamisen aloittamiseksi.
-		hr
+		hr(style="margin-bottom: 5px;")
 	input#searchInput.controls(type='text', placeholder='Enter a location')
 	#map
 	script.
