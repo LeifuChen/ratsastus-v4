@@ -1,11 +1,12 @@
 extends ../layouts/default
 
 block bigImage
-	img(src="../../images/mainpage.jpg" style="margin-top: -30px;").img-responsive
+	div(style="margin-bottom: 0px;display:flex; justify-content:center;align-items: center;")
+		img(src="../../images/mainpage.jpg" style="margin-top: -30px;").img-responsive
 
 block content
 	.row
-		.col-sm-8
+		.col-md-8.col-md-offset-2
 			h3: a(href='/') Tervetuloa ratsastamaan!
 			//- p Simple example blog with posts and categories.
 			p Oletko aina haaveillut ratsastuksen aloittamisesta?
