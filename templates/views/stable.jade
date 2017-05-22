@@ -208,6 +208,11 @@ block content
 			autocomplete.bindTo('bounds', map);
 			
 			autocomplete.addListener('place_changed', function() {
+					changedPlace()
+				});
+				
+			
+			function changedPlace() {
 				var place = autocomplete.getPlace();
 				if (!place.geometry) {
 					window.alert("Autocomplete's returned place contains no geometry");
@@ -221,23 +226,12 @@ block content
 					map.setCenter(place.geometry.location);
 					map.setZoom(20);
 				}
-				marker.setIcon(defaultIcon);
-				marker.setPosition(place.geometry.location);
-				var address = '';
-				if (place.address_components) {
-						address = [
-							(place.address_components[0] && place.address_components[0].short_name || ''),
-							(place.address_components[1] && place.address_components[1].short_name || ''),
-							(place.address_components[2] && place.address_components[2].short_name || '')
-						].join(' ');
-				}
-		
 
 				marker.addListener('mouseover', function() {
 					largeInfowindow.setContent('<div><strong>' + place.name + '</strong></div></div>' + address + '</div>');
 					largeInfowindow.open(map, marker);
 				});
-			});
+			};
 			
 			// Style the markers a bit. This will be our listing marker icon.
 			var defaultIcon = makeMarkerIcon('0091ff');
