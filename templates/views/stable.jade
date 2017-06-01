@@ -209,7 +209,7 @@ block content
 			
 			autocomplete.addListener('place_changed', function() {
 					changedPlace()
-				});
+			});
 				
 			
 			function changedPlace() {
@@ -227,10 +227,6 @@ block content
 					map.setZoom(20);
 				}
 
-				marker.addListener('mouseover', function() {
-					largeInfowindow.setContent('<div><strong>' + place.name + '</strong></div></div>' + address + '</div>');
-					largeInfowindow.open(map, marker);
-				});
 			};
 			
 			// Style the markers a bit. This will be our listing marker icon.
@@ -245,7 +241,6 @@ block content
 			for (var i = 0; i < stables.length; i++) {
 				// Get the position from the location array.
 				var position = {lat: stables[i].latitude, lng: stables[i].longitude};
-				console.log(position);
 				var address = stables[i].street + ", " + stables[i].postcode + " " + stables[i].city;
 				var name = stables[i].name;
 				var web = stables[i].website;
@@ -260,7 +255,6 @@ block content
 					icon: defaultIcon,
 					id: i
 				});
-				console.log(marker.position);
 				// Push the marker to our array of markers.
 				markers.push(marker);
 		
