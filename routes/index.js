@@ -40,7 +40,7 @@ exports = module.exports = function (app) {
 	app.all('/guide/post/:post', routes.views.post);
 	app.all('/faq', routes.views.faq);
 	app.all('/stable', routes.views.stable);
-
+	app.all('/competition', routes.views.competition);
 	// Downloads
 	app.get('/download/users', routes.download.users);
 

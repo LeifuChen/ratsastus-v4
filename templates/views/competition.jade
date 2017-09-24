@@ -1,0 +1,82 @@
+extends ../layouts/default
+
+block css
+	link(rel="stylesheet", href="/js/lib/fancybox/jquery.fancybox.css")
+	link(rel="stylesheet", href="/styles/map.css")
+
+block content
+	.page-header
+		h1 Tervetuloa jännittämään ratsastuskilpailuihin
+		div(style="margin-bottom: 20px; display:flex; justify-content:center;align-items: center;")
+			img(src="http://res.cloudinary.com/zac/image/upload/c_fit,h_400,q_80,w_600/ov2gts7askl4ti7p3ghw").img-responsive
+		
+		p Tervetuloa seuraamaan ainutlaatuista kilpaurheilua, jossa urheilija tekee yhteistyötä hevosen kanssa. Tämän tekstikokonaisuuden tarkoituksena on kertoa sinulle, mistä kentän tapahtumissa on kyse. Etsi siis sopiva paikka seurata suorituksia ja heittäydy hevosurheilun pariin.
+
+		h2 Vinkkejä katsojalle
+		li	Luokan lähtölista kertoo osallistuvien ratsukoiden lähtöjärjestyksen ja luokan arvostelun eli miten ratsukoiden välinen paremmuus ratkotaan.
+		li	Lähtölistoja löytyy ainakin kilpailukansliasta ja usein niitä jaetaan myös muissa sopivissa paikoissa yleisölle. Online-tulokset löytyvät Ratsastajainliiton sivujen kautta (www.ratsastus.fi). 
+		li	Kuuluttaja kertoo tarkemmin tapahtumista ja tuloksista. Kilpailujen seuraamisen helpottamiseksi voit kirjoittaa lähtölistaasi ratsukoiden tulokset. 
+		li Yleisön toivotaan kannustavan ratsukoita, mutta oikealla hetkellä eli ennen ja jälkeen suorituksen sekä palkintojenjaon aikana.
+		li Yleisön tulisi pysyvän paikoillaan suoritusten aikana, jotta hevoset voivat keskittyä rauhassa tekemään parhaansa. Näin etenkin kouluratsastuksessa.
+		li Hevonen voi säikähtää kentän laidan tapahtumia, kuten salamavaloa, sateenvarjoa tai juoksevaa koiraa tai lasta. Syynä on saaliseläimen luonnollinen pakenemisvaisto vaaran uhatessa. Joten liikuthan rauhallisesti ja mielellään vain suoritusten väleissä.
+		li Varaathan mukaasi käteistä. Paikalla on usein kisakahvila, josta voit ostaa virvokkeita.
+
+		h2 Esteratsastus - virheittä yli esteiden
+		div(style="margin-bottom: 20px; display:flex; justify-content:center;align-items: center;")
+			img(src="http://res.cloudinary.com/zac/image/upload/c_fit,h_400,q_80,w_600/wo5fqczc4xjbz8bsmz7r").img-responsive
+
+		p Esteratsastuksessa on kyse taidosta, taktikoinnista ja hallitusta riskinotosta. Ratsukoiden tehtävänä on hypätä esterata virheittä. Niitä kertyy puomien pudotuksista, jos hevonen ei hyppää estettä tai jos enimmäisaika ylittyy. Voiton vie yleensä se, jolla on vähiten virhepisteitä ja nopein aika.  
+		p Arvostelumuotoja on useita. Pääluokissa on ensin perusrata tai ensimmäinen kierros, jonka parhaat jatkavat uusintaan tai toiselle kierrokselle. On olemassa myös aikaratsastusluokkia, joissa hypätään vain yksi rata ilman uusintaa. Ratsastus kahdessa vaiheessa eli jatkaminen välittömään uusintaan on myös suosittu kilpailumuoto.
+		p Mitä korkeammat esteet, sitä haastavampi rata on ratsukoille. Estekorkeuksien lisäksi radan vaativuuteen vaikuttavat esteiden sijoittelut ja niiden väliset etäisyydet, esteiden ulkonäkö ja rakenne, enimmäisaika, radan pituus, kentän koko ja pohja. 
+		p Esterataan kuuluu kilpailuluokan vaikeusasteen mukaan 8–20 estettä, joista osa voi olla sarjaesteitä. Esteet on rakennettu siten, että ainakin niiden ylin osa on putoava. Ratojen suunnittelusta vastaa kilpailun ratamestari. Estekorkeus vaihtelee kilpailuluokittain 60–160 cm:n välillä. 
+
+		h3 Virhepisteitä kertyy: 
+		li Esteen pudottamisesta neljä virhepistettä.
+		li Hevosen kieltäytyessä hyppäämästä estettä seuraa neljä virhepistettä ensimmäisellä kerralla, toisella kerralla ratsukon suoritus hylätään.
+		li Radalle määritetyn enimmäisajan ylityksestä tulee perusradalla yksi virhepiste jokaisesta alkavasta neljästä sekunnista ja uusinnassa yksi virhepiste jokaiselta alkaneelta sekunnilta.
+
+		h2 Kouluratsastus - kuin balettia yhdessä ”Collapse”
+		div(style="margin-bottom: 20px; display:flex; justify-content:center;align-items: center;")
+			img(src="http://res.cloudinary.com/zac/image/upload/c_fit,h_400,q_80,w_600/qd1vawknmsbve37whb55").img-responsive
+
+		p Kouluratsastusta voisi verrata klassiseen balettiin. Hevonen liikkuu notkeasti, joustavasti ja jäntevästi ratsastajan ohjatessa sitä pehmein, huomaamattomin avuin. Parhaimmillaan ratsukon yhteistyö on niin saumatonta, että hevonen näyttää suorittavan liikkeet vain ajatuksen voimalla. Ratsukko esittää ohjelmassa määrätyt liikesarjat tarkasti oikeassa pisteessä ja eri askellajeissa. 
+		p Tuomarit arvostelevat suoritukset antaen pisteitä 1-10 ohjelman eri liikkeistä ja yleisvaikutelmasta. Tulos ilmoitetaan prosentteina mahdollisista maksimipisteistä. Korkeimmat pisteet tai prosentit saanut ratsukko voittaa. 
+		p Perinteisten ohjelmien lisäksi ratsastetaan vapaaohjelmia musiikin tahdissa (kür) eri vaikeustasoilla. Ratsastaja suunnittelee itse ohjelmansa ja valitsee siihen musiikin, myös musiikin sopivuus sekä hevosen liikkeisiin että koreografiaan arvostellaan. Puolet pisteistä tulee teknisestä osuudesta ja puolet taiteellisesta. Lisäpisteitä voi myös saada teknisen vaikeusasteen lisäämisestä ohjelmaan. 
+		p Korkeimmalle Grand Prix -tasolle pääseminen vaatii monien vuosien määrätietoista harjoittelua ja lihaksiston kehittämistä. GP-ohjelmissa ratsastetaan vaikeita liikkeitä, jotka vaativat hevoselta paljon voimaa ja kokoamista eli kykyä siirtää painopistettä takajalkojen päälle. Tällaisia liikkeitä ovat laukassa mm. sarjavaihdot, kuten laukanvaihto jokaisessa askeleessa, sekä laukkapiruetti. Piaffe erittäin koottua ravia lähes paikallaan ja passage erittäin koottua ravia korkein ja ilmavin askelin. 
+
+		h3 Arvostelumenetelmät:
+		li Jokainen koulutuomari arvostelee ratsukon suorittamat liikkeet tai liikeryhmät arvosanoin 0-10. Liikkeille annettujen numeroiden lisäksi ohjelman jälkeen annetaan yleisarvosanat. Arvostelussa voidaan käyttää myös puolikkaita pisteitä 0,5-9,5. 
+		li Tulos muodostuu suorituskokonaisuuksien yhteenlasketuista pisteistä. Yleensä lopputulos ilmaistaan prosentteina mahdollisista maksimipisteistä.
+		li Vapaaohjelmassa pisteistä puolet tulee teknisestä osaamisesta ja puolet taiteellisesta vaikutelmasta.
+
+
+		h2 Kenttäratsastus - monipuolinen kuninkuuslaji ”Collapse”
+		div(style="margin-bottom: 20px; display:flex; justify-content:center;align-items: center;")
+			img(src="http://res.cloudinary.com/zac/image/upload/c_fit,h_400,q_80,w_600/a5r1imkaxvdodb9lv4so").img-responsive
+
+		p Kenttäratsastuksessa menestyäkseen ratsukolta vaaditaan monipuolista urheilullisuutta, yhteistyökykyä ja kestävyyttä. Kenttäratsastusta pidetään ratsastuksen kuninkuuslajina, eikä suotta. Kaikki kolme osakoetta - kouluratsastuskoe, maastokoe ja esteratsastuskoe - ratsastetaan samalla hevosella. 
+		p Koulukokeessa hevosen pitää esittää olevansa koulutustasoltaan, lihaksistoltaan ja yhteistyökyvyltään valmis tuleviin osakokeisiin. Tuomaristo arvioi suorituksen ja tulos muunnetaan virhepisteiksi. 
+		p Maastokoe on kenttäkilpailun sielu. Siinä punnitaan ratsukon kyky ylittää nopeasti kiinteitä maastoesteitä sekä pitkässä kilpailuissa myös hevosen kestävyyttä ja palautumista. Maastoesterata voi olla kilometrien pituinen ja siihen saattaa kuulua jopa yli 30 ripeässä laukassa hypättävää kiinteää estettä. Hevoset hyppäävät yli tukkien ja ojien, pudottautuvat ja kiipeävät penkereitä, hyppäävät veteen, vedessä ja vedestä pois. Ihanneajan ylittämisestä tai kielloista tai ylimääräisistä volteista tulee virhepisteitä. Ne lisätään koulukokeen tulokseen.
+		p Viimeinen osakoe, rataesteet, testaa ratsukon palautumista maastokokeesta ja yhteistyökykyä jälleen erilaisissa olosuhteissa. Hevosilta vaaditaan keskittymiskykyä, varovaisuutta, notkeutta ja hyvää ratsastettavuutta. Esteradalta mahdollisesti tulleet virhepisteet lisätään ratsukon tulokseen, ja pienimmän virhepistemäärän kolmen osakokeen jälkeen saanut ratsukko voittaa. 
+
+		h3 Kenttäkilpailun kokonaistulos muodostuu:
+		li koulukokeessa saavutetuista pisteistä muutettuna virhepisteiksi
+		li maastokokeen virhepisteistä
+		li estekokeen virhepisteistä
+		li Voittaja on ratsukko, jonka kolmessa osakokeessa saama yhteenlaskettu virhepistemäärä on pienin.
+
+		h3 Virhepisteet maastokokeessa:
+		li Tottelemattomuus esteellä 1.kerta 20 vp 
+		li 2.tottelemattomuus samalla esteellä 40 vp 
+		li Ylitetystä ihanneajasta 0,4 vp/sekunti 
+		li Aliajasta (yli 20 s.) harraste- ja tutustumisluokissa 0,4 vp/alkava sekunti, ylemmissä luokissa ei voimassa
+		li Vaarallisesta ratsastuksesta 25 vp, sakko tai kilpailusta sulkeminen 
+		li Paikaltaan hyppy tuomitaan tottelemattomuudeksi ja vaaralliseksi ratsastukseksi
+		
+		h3 Hylkäykseen johtaa mm.
+		li 3. tottelemattomuus maastokokeessa 
+		li Kumoonratsastus 
+		li Väärä tie 
+		li Satulasta putoaminen
+
+
